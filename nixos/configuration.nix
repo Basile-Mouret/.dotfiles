@@ -195,7 +195,6 @@
     '';
   };
 
-
   environment.systemPackages = with pkgs; [
   vim 
   neovim
@@ -213,6 +212,7 @@
   btop
   julia-bin
   fastfetch
+  curl
   # oh my zsh theme
   zsh-powerlevel10k
   # fonts
