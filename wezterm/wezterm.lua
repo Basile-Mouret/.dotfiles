@@ -19,5 +19,6 @@ config.window_background_opacity = 0.80
 config.color_scheme = "Catppuccin Mocha" -- Mocha, Macchiato, Frappe or Latte
 config.colors = {background = "black"}
 
+config.alternate_buffer_wheel_scroll_speed = 1 -- Scrolls 1 line per wheel tick
 
 return config
