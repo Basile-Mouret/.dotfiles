@@ -1,3 +1,7 @@
+" --- General Settings ---
+set nocompatible            " Be iMproved, required
+
+filetype off                " Required for some plugins (though we're not using any initially)
 " --- vim-plug configuration ---
 call plug#begin('~/.vim/plugged') " Directory where plugins will be installed
 
@@ -5,16 +9,6 @@ Plug 'catppuccin/vim', { 'as': 'catppuccin' } " Add the Catppuccin plugin
 Plug 'JuliaEditorSupport/julia-vim'
 
 call plug#end() " End of plugins" --- Basic Vimrc Configuration ---
-
-" --- General Settings ---
-set nocompatible            " Be iMproved, required
-
-" --- vim-plug configuration ---
-call plug#begin('~/.vim/plugged') " Directory where plugins will be installed
-
-Plug 'catppuccin/vim', { 'as': 'catppuccin' } " Add the Catppuccin plugin
-
-call plug#end() " End of pluginsfiletype off                " Required for some plugins (though we're not using any initially)
 
 " Basic UI settings
 set encoding=utf-8          " Set encoding to UTF-8
