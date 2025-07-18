@@ -196,33 +196,36 @@
   };
 
   environment.systemPackages = with pkgs; [
-  vim 
+  # terminal
+  wezterm 
+  vim_configurable 
   neovim
   wget
   tmux
   lazygit
+  btop
+  fastfetch
+  curl
+  julia-bin
+  xclip
+
+
+  # Gui apps
   discord
-  wezterm 
   obsidian
   lutris
   mediawriter
   gimp
   gearlever
   warehouse
-  btop
-  julia-bin
-  fastfetch
-  curl
-  # oh my zsh theme
   zsh-powerlevel10k
+
   # fonts
   meslo-lgs-nf # Nerd Font for Powerlevel10k
   nerd-fonts.jetbrains-mono
   nerd-fonts.fira-code
   nerd-fonts.fira-mono
   nerd-fonts.geist-mono  
-  # lshw to find out the bus id values of my gpus
-  lshw
 
   # Gnome Shell Extensions
   gnomeExtensions.blur-my-shell
