@@ -26,6 +26,14 @@ set tabstop=4               " Number of spaces a tab counts for
 set shiftwidth=4            " Number of spaces to use for autoindenting
 set expandtab               " Use spaces instead of tabs
 
+" changing cursor by mode
+let &t_SI = "\e[6 q"   " cursor in insert mode
+let &t_EI = "\e[2 q"   " cursor in normal mode
+let &t_SR = "\e[4 q"   " cursor in replace mode
+let &t_ti .= "\e[2 q"  " cursor when vim starts
+let &t_te .= "\e[2 q"  " cursor when vim exits
+
+set clipboard=unnamedplus
 " Line numbers
 set number                  " Show line numbers
 set relativenumber        " Show relative line numbers (uncomment if you prefer this for navigation)
@@ -48,6 +56,7 @@ set textwidth=80            " Wrap lines at 80 characters (useful for code style
 set termguicolors
 syntax enable               " Enable syntax highlighting
 colorscheme catppuccin_mocha          " Use the 'desert' colorscheme (it's built-in and generally pleasant)
+highlight Normal guibg=NONE ctermbg=NONE
                             " You can try others like 'default', 'blue', 'darkblue', 'peachpuff', 'ron'
 " set background=dark       " Tell Vim your terminal background is dark (adjust if your terminal is light)
 
@@ -60,6 +69,9 @@ nnoremap <leader>w :w<CR>   " Map space-w to save
 nnoremap <leader>q :q<CR>   " Map space-q to quit
 nnoremap <leader>Q :qa<CR>  " Map space-Q to quit all windows
 nnoremap <leader>wq :wq<CR> " Map space-wq to save and quit
+
+" opening the file explorer
+nnoremap <leader>e :Ex<CR> " Map space-wq to save and quit
 
 " Easier navigation
 " nnoremap <leader>h <C-w>h " Move to left window
