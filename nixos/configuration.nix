@@ -100,6 +100,9 @@
   # Enable CUPS to print documents.
   services.printing.enable = true;
 
+  # for thunderbolt support
+  services.hardware.bolt.enable = true;
+
   # Enable sound with pipewire.
   services.pulseaudio.enable = false;
   security.rtkit.enable = true;
