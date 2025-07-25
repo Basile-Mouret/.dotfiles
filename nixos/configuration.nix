@@ -97,11 +97,14 @@
   # Configure console keymap
   console.keyMap = "fr";
 
+  # services.xserver.xkb.options = "ctrl:nocaps";
+  # console.useXkbConfig = true;
+
   # Enable CUPS to print documents.
   services.printing.enable = true;
 
   # for thunderbolt support
-  services.hardware.bolt.enable = true;
+  # services.hardware.bolt.enable = true;
 
   # Enable sound with pipewire.
   services.pulseaudio.enable = false;
@@ -146,7 +149,11 @@
 
   programs.nix-ld.enable = true;
 
-  programs.firefox.enable = true;
+  programs.firefox = {
+    enable = true;
+    package = pkgs.firefox;
+    nativeMessagingHosts.packages = [ pkgs.firefoxpwa ];
+  };
 
   programs.git.enable = true;
  
@@ -197,20 +204,32 @@
       source ${pkgs.zsh-powerlevel10k}/share/zsh-powerlevel10k/powerlevel10k.zsh-theme
     '';
   };
+  
+  # Supergfxctl : to manage Nvidia gpu/ amd igpu
+  services.supergfxd.enable = true;
+  # Asusctl and ROG control center
+  services = {
+      asusd = {
+        enable = true;
+        enableUserService = true;
+      };
+  };
 
   environment.systemPackages = with pkgs; [
   # terminal
   wezterm 
-  vim_configurable 
+  vim_configurable # vim doesn't have a lot of options
   neovim
   wget
+  curl
   tmux
   lazygit
   btop
   fastfetch
-  curl
   julia-bin
-  xclip
+  xclip # for clipboard support in vim
+  just # like Make
+  typst
 
 
   # Gui apps
@@ -223,13 +242,6 @@
   warehouse
   zsh-powerlevel10k
 
-  # fonts
-  meslo-lgs-nf # Nerd Font for Powerlevel10k
-  nerd-fonts.jetbrains-mono
-  nerd-fonts.fira-code
-  nerd-fonts.fira-mono
-  nerd-fonts.geist-mono  
-
   # Gnome Shell Extensions
   gnomeExtensions.blur-my-shell
   gnomeExtensions.gpu-supergfxctl-switch
@@ -241,17 +253,19 @@
   # system usage
   ];
 
-  # Supergfxctl : to manage Nvidia gpu/ amd igpu
-  services.supergfxd.enable = true;
-  # Asusctl and ROG control center
-  services = {
-      asusd = {
-        enable = true;
-        enableUserService = true;
-      };
-  };
 
-  # Some programs need SUID wrappers, can be configured further or are
+  # --- FONT CONFIGURATION  ---
+  fonts = {
+    packages = with pkgs; [
+      meslo-lgs-nf # Nerd Font for Powerlevel10k
+      nerd-fonts.jetbrains-mono
+      nerd-fonts.fira-code
+      nerd-fonts.fira-mono
+      nerd-fonts.geist-mono
+      fira-code
+    ]; 
+  };
+# Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
   # programs.mtr.enable = true;
   # programs.gnupg.agent = {
