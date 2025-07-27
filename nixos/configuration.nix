@@ -117,6 +117,7 @@
     isNormalUser = true;
     description = "Basile";
     extraGroups = [ "networkmanager" "wheel" ];
+    shell = pkgs.zsh;
   };
   home-manager.users.basile = import ./home.nix;
 
@@ -131,6 +132,8 @@
   # Programs
 
   programs.nix-ld.enable = true;
+
+  programs.zsh.enable = true;
 
   programs.firefox = {
     enable = true;
