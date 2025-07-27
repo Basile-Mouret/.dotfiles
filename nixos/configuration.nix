@@ -11,9 +11,7 @@
     ];
   nix.settings.experimental-features = ["nix-command" "flakes"];
 
-
- 
-  # NVIDIA
+  # ------------- NVIDIA -------------
     # Enable OpenGL
   hardware.graphics.enable = true;
 
@@ -28,26 +26,16 @@
     nvidiaSettings = true;
     package = config.boot.kernelPackages.nvidiaPackages.stable;
     
-    prime = {
-    offload.enable = true;
-    amdgpuBusId = "PCI:65:0:0";
-    nvidiaBusId = "PCI:1:0:0";
+    #prime = {
+    #offload.enable = true;
+    #amdgpuBusId = "PCI:65:0:0";
+    #nvidiaBusId = "PCI:1:0:0";
+    #};
   };
-};
-
-
-
-
-
-
-
-
-
-
 
 
  
-  # Bootloader.
+  # ------------- Bootloader -------------
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
