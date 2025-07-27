@@ -9,7 +9,7 @@
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
     ];
-
+    nix.settings.experimental-features = ["nix-command" "flakes"];
 
 
 
@@ -230,11 +230,13 @@
   xclip # for clipboard support in vim
   just # like Make
   typst
+  unzip
 
 
   # Gui apps
   discord
   obsidian
+  qutebrowser
   lutris
   mediawriter
   gimp
