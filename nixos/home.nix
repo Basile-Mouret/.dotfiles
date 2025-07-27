@@ -5,10 +5,7 @@
   # Set your username and home directory
   home.username = "basile";
   home.homeDirectory = "/home/basile";
-
-  # This value determines the Home Manager release that your
-  # configuration is compatible with. This helps avoid breakage.
-  home.stateVersion = "25.05"; # Or "23.11" or whatever version you want to start with.
+  home.stateVersion = "25.05";
 
   nixpkgs.config = {
     allowUnfree = true;
@@ -58,11 +55,11 @@ programs.zsh = {
   enableCompletion = true;
 
   # This sets the 'bindkey -v' vi-mode setting
-  viMode = true;
+  #viMode = true;
 
   # This sets the 'unsetopt beep' setting
   # The option name is the lowercase version of the zsh option without underscores.
-  setOptions = [ "NO_BEEP" ];
+  #setOptions = [ "NO_BEEP" ];
 
   # Your aliases go here
   shellAliases = {
@@ -72,14 +69,6 @@ programs.zsh = {
     vim = "nvim";
     oldvim = "\\vim";
   };
-};
-
-# Enable Powerlevel10k. This automatically handles sourcing the theme.
-# It will look for your p10k config file at ~/.p10k.zsh
-programs.powerlevel10k = {
-  enable = true;
-  # This enables the "instant prompt" feature from your .zshrc
-  enableInstantPrompt = true;
 };
 
   # Let Home Manager manage itself
