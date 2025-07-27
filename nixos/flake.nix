@@ -5,7 +5,7 @@
   };
   outputs = { self, nixpkgs }: {
     nixosConfigurations.zephyrus = nixpkgs.lib.nixosSystem {
-      moudles = [ ./configuration.nix];
+      modules = [ ./configuration.nix];
     };
   };
 }
