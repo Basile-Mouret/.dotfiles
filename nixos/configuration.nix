@@ -9,8 +9,7 @@
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
     ];
-    nix.settings.experimental-features = ["nix-command" "flakes"];
-
+  nix.settings.experimental-features = ["nix-command" "flakes"];
 
 
  
@@ -176,11 +175,9 @@
   # Supergfxctl : to manage Nvidia gpu/ amd igpu
   services.supergfxd.enable = true;
   # Asusctl and ROG control center
-  services = {
-      asusd = {
-        enable = true;
-        enableUserService = true;
-      };
+  services.asusd = {
+    enable = true;
+    enableUserService = true;
   };
 
   environment.systemPackages = with pkgs; [
