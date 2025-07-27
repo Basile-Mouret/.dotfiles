@@ -44,9 +44,6 @@
     gearlever
     warehouse
     # etc...
-
-    # themes
-    zsh-powerlevel10k
   ];
 
   # Manage your git configuration
@@ -56,19 +53,34 @@
     userEmail = "your-email@example.com"; # Your email
   };
   
-  # Manage your zsh config here
-  programs.zsh = {
-    enable = true;
-    enableCompletion = true;
-    syntaxHighlighting.enable = true;
-    autosuggestion.enable = true;
-    # You no longer need the promptInit if you install zsh-powerlevel10k with home-manager
+programs.zsh = {
+  enable = true;
+  enableCompletion = true;
+
+  # This sets the 'bindkey -v' vi-mode setting
+  viMode = true;
+
+  # This sets the 'unsetopt beep' setting
+  # The option name is the lowercase version of the zsh option without underscores.
+  setOptions = [ "NO_BEEP" ];
+
+  # Your aliases go here
+  shellAliases = {
+    lg = "lazygit";
+    v = "nvim";
+    vi = "nvim";
+    vim = "nvim";
+    oldvim = "\\vim";
   };
-  # programs.oh-my-zsh = {
-  # enable = true;
-  # plugins = [ "git" "sudo" ];
-  # theme = "agnoster";
-  #};
+};
+
+# Enable Powerlevel10k. This automatically handles sourcing the theme.
+# It will look for your p10k config file at ~/.p10k.zsh
+programs.powerlevel10k = {
+  enable = true;
+  # This enables the "instant prompt" feature from your .zshrc
+  enableInstantPrompt = true;
+};
 
   # Let Home Manager manage itself
   programs.home-manager.enable = true;
