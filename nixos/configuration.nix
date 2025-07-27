@@ -127,15 +127,11 @@
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.basile = {
-    shell = pkgs.zsh;
     isNormalUser = true;
     description = "Basile";
     extraGroups = [ "networkmanager" "wheel" ];
-    packages = with pkgs; [
-    #  thunderbird
-    gemini-cli
-    ];
   };
+  home-manager.users.basile = import ./home.nix;
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
@@ -176,34 +172,6 @@
   #  openFirewall = true;
   #  
   #};
-
-  # Enable Zsh, with oh my zsh and pwl10k
-  programs.zsh = {
-    enable = true;
-    enableCompletion = true;
-    enableBashCompletion = true; # Useful if you also use bash scripts
-    autosuggestions.enable = true;
-    syntaxHighlighting.enable = true;
-    ohMyZsh = {
-      enable = true;
-      plugins = [
-        "git" # Example plugin, add more as needed
-        # "z" # Example for a common plugin
-        # "fzf" # If you also install fzf
-      ];
-      # You can also add custom plugins by specifying their path, e.g.:
-      # custom = "${pkgs.fetchFromGitHub {
-      #   owner = "some-user";
-      #   repo = "some-omz-plugin";
-      #   rev = "commit-hash";
-      #   sha256 = "sha256-of-repo";
-      # }}";
-    };
-    promptInit = ''
-      # Source Powerlevel10k theme
-      source ${pkgs.zsh-powerlevel10k}/share/zsh-powerlevel10k/powerlevel10k.zsh-theme
-    '';
-  };
   
   # Supergfxctl : to manage Nvidia gpu/ amd igpu
   services.supergfxd.enable = true;
@@ -216,34 +184,6 @@
   };
 
   environment.systemPackages = with pkgs; [
-  # terminal
-  wezterm 
-  vim_configurable # vim doesn't have a lot of options
-  neovim
-  wget
-  curl
-  tmux
-  lazygit
-  btop
-  fastfetch
-  julia-bin
-  xclip # for clipboard support in vim
-  just # like Make
-  typst
-  unzip
-
-
-  # Gui apps
-  discord
-  obsidian
-  qutebrowser
-  lutris
-  mediawriter
-  gimp
-  gearlever
-  warehouse
-  zsh-powerlevel10k
-
   # Gnome Shell Extensions
   gnomeExtensions.blur-my-shell
   gnomeExtensions.gpu-supergfxctl-switch
@@ -251,8 +191,6 @@
   gnomeExtensions.tiling-shell
   gnomeExtensions.open-bar
   gnomeExtensions.caffeine
-
-  # system usage
   ];
 
 
