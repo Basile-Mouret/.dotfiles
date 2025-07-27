@@ -10,6 +10,9 @@
   # configuration is compatible with. This helps avoid breakage.
   home.stateVersion = "25.05"; # Or "23.11" or whatever version you want to start with.
 
+  nixpkgs.config = {
+    allowUnfree = true;
+  };
   # This is where you will manage your packages
   home.packages = with pkgs; [
 
@@ -57,15 +60,15 @@
   programs.zsh = {
     enable = true;
     enableCompletion = true;
-    autosuggestions.enable = true;
     syntaxHighlighting.enable = true;
-    ohMyZsh = {
-      enable = true;
-      plugins = [ "git" "sudo" ];
-      theme = "agnoster"; # You can set your theme here
-    };
+    autosuggestion.enable = true;
     # You no longer need the promptInit if you install zsh-powerlevel10k with home-manager
   };
+  # programs.oh-my-zsh = {
+  # enable = true;
+  # plugins = [ "git" "sudo" ];
+  # theme = "agnoster";
+  #};
 
   # Let Home Manager manage itself
   programs.home-manager.enable = true;

@@ -1,3 +1,5 @@
+# ~/.dotfiles/nixos/flake.nix
+
 {
   description = "Basile's NixOS Flake";
 
@@ -16,11 +18,11 @@
   outputs = { self, nixpkgs, home-manager, ... }: {
     nixosConfigurations.zephyrus = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
-      specialArgs = { inherit home-manager; }; # Pass home-manager to your modules
       modules = [
         ./configuration.nix
 
-        # Add the home-manager module to your system
+        # This line is crucial and was likely missing or incorrect.
+        # It loads all the necessary Home Manager options.
         home-manager.nixosModules.default
       ];
     };
