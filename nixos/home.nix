@@ -94,13 +94,10 @@
     viAlias = true;
     vimAlias = true;
     vimdiffAlias = true;
-    extraLuaConfig = builtins.readFile ./nvim/init.lua;
-    plugins = with pkgs.vimPlugins;[
-      {
-        plugin = catppuccin-nvim;
-	      config = "colorscheme catppuccin";
-      }
-    ];
+  };
+  xdg.configFile."nvim" = {
+    source = ./nvim;
+    recursive = true;  # This copies the entire directory structure
   };
   # Let Home Manager manage itself
   programs.home-manager.enable = true;
