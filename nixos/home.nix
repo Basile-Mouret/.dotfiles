@@ -30,6 +30,9 @@
     unzip
     tree
     gemini-cli
+    oh-my-zsh
+    zsh-powerlevel10k
+
 
     # Gui apps
     discord
@@ -50,27 +53,25 @@
     userEmail = "your-email@example.com"; # Your email
   };
   
-programs.zsh = {
-  enable = true;
-  enableCompletion = true;
-
-  # This sets the 'bindkey -v' vi-mode setting
-  #viMode = true;
-
-  # This sets the 'unsetopt beep' setting
-  # The option name is the lowercase version of the zsh option without underscores.
-  #setOptions = [ "NO_BEEP" ];
-
-  # Your aliases go here
-  shellAliases = {
-    lg = "lazygit";
-    v = "nvim";
-    vi = "nvim";
-    vim = "nvim";
-    oldvim = "\\vim";
+  programs.zsh = {
+    enable = true;
+    enableCompletion = true;
+    shellAliases = {
+      lg = "lazygit";
+      v = "nvim";
+      vi = "nvim";
+      vim = "nvim";
+      oldvim = "\\vim";
+    };
+    initContent = "source ~/.p10k.zsh";
+    plugins = [   
+    {                                                                                   
+      name = "powerlevel10k";                                                           
+      src = pkgs.zsh-powerlevel10k;                                                     
+      file = "share/zsh-powerlevel10k/powerlevel10k.zsh-theme";                         
+    }
+    ];
   };
-};
-
   # Let Home Manager manage itself
   programs.home-manager.enable = true;
 }

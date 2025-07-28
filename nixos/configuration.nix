@@ -141,8 +141,6 @@
     nativeMessagingHosts.packages = [ pkgs.firefoxpwa ];
   };
 
-  programs.git.enable = true;
- 
   programs.dconf.enable = true;
 
   # Install Steam
