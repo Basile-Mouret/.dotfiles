@@ -1,5 +1,5 @@
 # This is your home-manager configuration file
-{ pkgs, ... }:
+{ config, pkgs, ... }:
 
 {
   # Set your username and home directory
@@ -11,16 +11,12 @@
     allowUnfree = true;
   };
   
-  home.sessionVariables = {
-  EDITOR = "nvim";
-  }
   # This is where you will manage your packages
   home.packages = with pkgs; [
 
     # Packages from environment.systemPackages
     wezterm 
     vim_configurable # vim doesn't have a lot of options
-    neovim
     wget
     curl
     tmux
@@ -36,6 +32,7 @@
     gemini-cli
     oh-my-zsh
     zsh-powerlevel10k
+    claude-code
 
 
     # Gui apps
@@ -50,11 +47,25 @@
     # etc...
   ];
 
+  # Font configuration
+  fonts.fontconfig.enable = true;
+  home.packages = home.packages ++ (with pkgs; [
+    meslo-lgs-nf # Nerd Font for Powerlevel10k
+    nerd-fonts.jetbrains-mono
+    nerd-fonts.fira-code
+    nerd-fonts.fira-mono
+    nerd-fonts.geist-mono
+    fira-code
+  ]);
+
+
+
+
   # Manage your git configuration
   programs.git = {
     enable = true;
-    userName = "Basile"; # Your name
-    userEmail = "your-email@example.com"; # Your email
+    userName = "Basile";
+    userEmail = "basile@example.com";
   };
   
   programs.zsh = {
@@ -63,8 +74,6 @@
     shellAliases = {
       lg = "lazygit";
       v = "nvim";
-      vi = "nvim";
-      vim = "nvim";
       oldvim = "\\vim";
     };
     initContent = "source ~/.p10k.zsh";
@@ -74,6 +83,21 @@
       src = pkgs.zsh-powerlevel10k;                                                     
       file = "share/zsh-powerlevel10k/powerlevel10k.zsh-theme";                         
     }
+    ];
+  };
+
+  programs.neovim = {
+    enable = true;
+    defaultEditor = true;
+    viAlias = true;
+    vimAlias = true;
+    vimdiffAlias = true;
+    extraLuaConfig = '''';
+    plugins = with pkgs.vimPlugins;[
+      {
+        plugin = catppuccin-nvim;
+	      config = "colorscheme catppuccin";
+      }
     ];
   };
   # Let Home Manager manage itself
