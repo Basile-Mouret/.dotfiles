@@ -94,7 +94,7 @@
     viAlias = true;
     vimAlias = true;
     vimdiffAlias = true;
-    extraLuaConfig = '''';
+    extraLuaConfig = builtins.readFile ./nvim/init.lua;
     plugins = with pkgs.vimPlugins;[
       {
         plugin = catppuccin-nvim;
