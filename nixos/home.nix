@@ -44,19 +44,18 @@
     gimp
     gearlever
     warehouse
-    # etc...
-  ];
 
-  # Font configuration
-  fonts.fontconfig.enable = true;
-  home.packages = home.packages ++ (with pkgs; [
+    # fonts
     meslo-lgs-nf # Nerd Font for Powerlevel10k
     nerd-fonts.jetbrains-mono
     nerd-fonts.fira-code
     nerd-fonts.fira-mono
     nerd-fonts.geist-mono
     fira-code
-  ]);
+  ];
+
+  # Font configuration
+  fonts.fontconfig.enable = true;
 
 
 
@@ -64,8 +63,8 @@
   # Manage your git configuration
   programs.git = {
     enable = true;
-    userName = "Basile";
-    userEmail = "basile@example.com";
+    userName = "Basile Mouret";
+    userEmail = "Basile-Mouret@users.noreply.github.com";
   };
   
   programs.zsh = {
