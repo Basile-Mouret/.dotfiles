@@ -33,8 +33,6 @@
     zsh-powerlevel10k
     claude-code
 
-    julia-lsp
-
 
     # Gui apps
     discord
