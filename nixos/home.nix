@@ -10,6 +10,10 @@
   nixpkgs.config = {
     allowUnfree = true;
   };
+  
+  home.sessionVariables = {
+  EDITOR = "nvim";
+  }
   # This is where you will manage your packages
   home.packages = with pkgs; [
 
