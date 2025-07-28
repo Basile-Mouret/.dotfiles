@@ -15,7 +15,6 @@
   home.packages = with pkgs; [
 
     # Packages from environment.systemPackages
-    wezterm 
     vim_configurable # vim doesn't have a lot of options
     wget
     curl
@@ -56,7 +55,11 @@
 
   # Font configuration
   fonts.fontconfig.enable = true;
-
+  
+  programs.wezterm = {
+    enable = true;
+    extraConfig = builtins.readFile ./wezterm/wezterm.lua;
+  };
 
 
 
@@ -75,7 +78,7 @@
       v = "nvim";
       oldvim = "\\vim";
     };
-    initContent = "source ~/.p10k.zsh";
+    initContent = "source .p10k.zsh";
     plugins = [   
     {                                                                                   
       name = "powerlevel10k";                                                           
