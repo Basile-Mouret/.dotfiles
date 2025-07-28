@@ -78,7 +78,7 @@
       v = "nvim";
       oldvim = "\\vim";
     };
-    initContent = "source .p10k.zsh";
+    initContent = "source ~/.p10k.zsh";
     plugins = [   
     {                                                                                   
       name = "powerlevel10k";                                                           
