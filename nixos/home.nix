@@ -70,23 +70,33 @@
     userEmail = "Basile-Mouret@users.noreply.github.com";
   };
   
-  programs.zsh = {
-    enable = true;
-    enableCompletion = true;
-    shellAliases = {
-      lg = "lazygit";
-      v = "nvim";
-      oldvim = "\\vim";
-    };
-    initContent = "source ~/.p10k.zsh";
-    plugins = [   
-    {                                                                                   
-      name = "powerlevel10k";                                                           
-      src = pkgs.zsh-powerlevel10k;                                                     
-      file = "share/zsh-powerlevel10k/powerlevel10k.zsh-theme";                         
-    }
-    ];
+programs.zsh = {
+  enable = true;
+  enableCompletion = true;
+  shellAliases = {
+    lg = "lazygit";
+    v = "nvim";
+    oldvim = "\\vim";
   };
+  initContent = "source ~/.p10k.zsh";
+  plugins = [
+    {
+      name = "powerlevel10k";
+      src = pkgs.zsh-powerlevel10k;
+      file = "share/zsh-powerlevel10k/powerlevel10k.zsh-theme";
+    }
+    {
+      name = "zsh-syntax-highlighting";
+      src = pkgs.zsh-syntax-highlighting;
+      file = "share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh";
+    }
+    {
+      name = "zsh-autosuggestions";
+      src = pkgs.zsh-autosuggestions;
+      file = "share/zsh-autosuggestions/zsh-autosuggestions.zsh";
+    }
+  ];
+};
 
   programs.neovim = {
     enable = true;
