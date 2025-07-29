@@ -13,9 +13,6 @@
     ./modules/desktop/gnome.nix
     ./modules/programs/gaming.nix
   ];
-  boot.kernelParams = [ 
-    "amdgpu.virtual_display=1"  # Creates virtual display on AMD GPU
-  ];
   nix.settings.experimental-features = ["nix-command" "flakes"];
 
   # Bootloader
