@@ -39,11 +39,14 @@
   programs.zsh.enable = true;
   programs.dconf.enable = true;
 
+
   programs.firefox = {
     enable = true;
     package = pkgs.firefox;
     nativeMessagingHosts.packages = [ pkgs.firefoxpwa ];
   };
+
+  services.tailscale.enable = true;
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
