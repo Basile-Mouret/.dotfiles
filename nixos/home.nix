@@ -22,7 +22,6 @@
     lazygit
     btop
     fastfetch
-    julia-bin
     xclip # for clipboard support in vim
     just # like Make
     typst
@@ -32,7 +31,13 @@
     oh-my-zsh
     zsh-powerlevel10k
     claude-code
+    icloudpd
 
+    # Programming Languages
+    julia-bin
+    python314
+    python313Packages.jupyterlab
+    uv
 
     # Gui apps
     discord
@@ -40,7 +45,6 @@
     qutebrowser
     lutris
     mediawriter
-    gimp
     gearlever
     warehouse
 
@@ -60,7 +64,12 @@
     enable = true;
     extraConfig = builtins.readFile ./wezterm/wezterm.lua;
   };
-
+  programs.vscode = {
+    enable = true;
+    extensions = with pkgs.vscode-extensions; [
+      vscodevim.vim
+    ];
+  };
 
 
   # Manage your git configuration

@@ -19,10 +19,17 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
+  # Networking
   networking.hostName = "zephyrus";
-  networking.networkmanager.enable = true;
+  networking.networkmanager = {
+    enable = true;
+    plugins = with pkgs; [
+      networkmanager-openvpn
+    ];
+  };
+  networking.firewall.enable = true;
 
-  # User configuration
+  # User
   users.users.basile = {
     isNormalUser = true;
     description = "Basile";
@@ -31,22 +38,42 @@
   };
   home-manager.users.basile = import ./home.nix;
 
-  # Allow unfree packages
-  nixpkgs.config.allowUnfree = true;
+  # Services
+  services.tailscale.enable = true;
+  services.sunshine = {
+    enable = true;
+    autoStart = true;
+    capSysAdmin = true;
+    openFirewall = true;
+    
+  };
+  services.ollama.enable = true;
+
+
 
   # Programs
   programs.nix-ld.enable = true;
   programs.zsh.enable = true;
   programs.dconf.enable = true;
-
-
   programs.firefox = {
     enable = true;
     package = pkgs.firefox;
     nativeMessagingHosts.packages = [ pkgs.firefoxpwa ];
   };
+  programs.appimage = {
+    enable = true;
+    binfmt = true;
+  };
 
-  services.tailscale.enable = true;
+  # Packages System Wide
+  nixpkgs.config.allowUnfree = true;
+  environment.systemPackages = with pkgs; [
+    openvpn
+    networkmanager-openvpn
+  ];
+
+
+
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
