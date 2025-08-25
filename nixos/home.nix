@@ -40,6 +40,7 @@
     uv
 
     # Gui apps
+    librewolf
     discord
     obsidian
     qutebrowser
