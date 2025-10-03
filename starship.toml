@@ -11,6 +11,15 @@ success_symbol = "[❯](green)"
 error_symbol = "[❯](red)"
 vimcmd_symbol = "[❮](subtext1)" # For use with zsh-vi-mode
 
+[username]
+style_user = "bold blue"
+style_root = "bold red"
+show_always = true  # By default, username only shows in SSH
+
+[hostname]
+style = "bold $green"
+format = "[@$hostname]($style)"
+
 [git_branch]
 style = "bold mauve"
 
