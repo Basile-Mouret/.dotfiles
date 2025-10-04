@@ -50,7 +50,7 @@ vim.lsp.config.julials = {
 vim.lsp.config.tinymist = {
         on_attach = function(client, bufnr)
 
-                vim.keymap.set("n", "<leader>tp", function()
+                vim.keymap.set("n", "<leader>tm", function()
 
                         client:exec_cmd({
 
@@ -62,7 +62,7 @@ vim.lsp.config.tinymist = {
 
                         }, { bufnr = bufnr })
 
-                end, { desc = "[T]inymist [P]in", noremap = true })
+                end, { desc = "[T]inymist pin [M]ain", noremap = true })
 
                 vim.keymap.set("n", "<leader>tu", function()
 
@@ -76,7 +76,7 @@ vim.lsp.config.tinymist = {
 
                         }, { bufnr = bufnr })
 
-                end, { desc = "[T]inymist [U]npin", noremap = true })
+                end, { desc = "[T]inymist [U]npin main", noremap = true })
 
         end,
 
