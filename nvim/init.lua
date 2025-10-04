@@ -7,11 +7,12 @@ vim.g.maplocalleader = '\\'
 -- Load general Neovim options
 require('config.options')
 
--- Load keymaps
-require('config.keymaps')
-
 --Lazy.nvim
 require('config.lazy')
 
+-- Load keymaps
+require('config.keymaps')
+
 -- lsp
 require('config.lsp')
+
