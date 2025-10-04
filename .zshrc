@@ -1,6 +1,8 @@
 
 # User configuration
 
+export KEYTIMEOUT=1 # vi mode esc faster
+
 export STARSHIP_CONFIG=~/.dotfiles/starship.toml
 
 # Preferred editor for local and remote sessions
