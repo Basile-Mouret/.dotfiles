@@ -12,6 +12,20 @@ else
   export EDITOR='nvim'
 fi
 
+# --------- history ----------
+export HISTFILE=~/.zsh_history
+export HISTSIZE=10000
+export SAVEHIST=10000
+# Bind up and down arrows to history search
+autoload -U history-search-end
+zle -N history-beginning-search-backward-end history-search-end
+zle -N history-beginning-search-forward-end history-search-end
+bindkey "^[OA" history-beginning-search-backward-end
+bindkey "^[OB" history-beginning-search-forward-end
+bindkey "^[OA" history-beginning-search-backward-end
+bindkey "^[OB" history-beginning-search-forward-end
+
+# ------------------------------
 unsetopt beep
 bindkey -v
 # End of lines configured by zsh-newuser-install

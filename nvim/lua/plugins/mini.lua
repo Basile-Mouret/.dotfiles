@@ -10,7 +10,18 @@ return {
     require('mini.files').setup({})
     require('mini.pick').setup({})
     require('mini.icons').setup({})
-
+    require('mini.pairs').setup({})
+    require("mini.surround").setup({
+      mappings = {
+        add = 'sa',            -- Add surrounding
+        delete = 'sd',         -- Delete surrounding
+        find = 'sf',           -- Find surrounding
+        find_left = 'sF',      -- Find surrounding to the left
+        highlight = 'sh',      -- Highlight surrounding
+        replace = 'sr',        -- Replace surrounding
+        update_n_lines = 'sn', -- Update n_lines
+      },
+    })
     -- Mini.nvim related keymaps
     vim.keymap.set('n', '<leader>e', '<cmd>lua MiniFiles.open(vim.api.nvim_buf_get_name(0))<cr>', {desc = 'File explorer'})
     vim.keymap.set('n', '<leader><space>', '<cmd>Pick buffers<cr>', {desc = 'Search open files'})
