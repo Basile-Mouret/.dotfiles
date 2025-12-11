@@ -7,6 +7,13 @@ vim.diagnostic.config({
   underline = true,
 })
 
+local on_attach_general = function(client, bufnr)
+  vim.keymap.set('n', 'K', vim.lsp.buf.hover, { buffer = bufnr, desc = "LSP: Voir documentation" })
+  vim.keymap.set({'n', 'v'}, '<leader>ca', vim.lsp.buf.code_action, { buffer = bufnr, desc = "LSP: Actions de code (corrections)" })
+  vim.keymap.set('n', 'gd', vim.lsp.buf.definition, { buffer = bufnr, desc = "LSP: Aller à la définition" })
+  vim.keymap.set('n', 'gr', vim.lsp.buf.references, { buffer = bufnr, desc = "LSP: Voir les références" })
+end
+
 vim.lsp.config.julials = {
     cmd = {
         "julia",
@@ -44,7 +51,8 @@ vim.lsp.config.julials = {
     },
     filetypes = { 'julia' },
     root_dir = require('lspconfig').util.root_pattern("Project.toml", "JuliaProject.toml"),
-    settings = {}
+    settings = {},
+    on_attach = on_attach_general,
 }
 
 vim.lsp.config.tinymist = {
@@ -82,3 +90,34 @@ vim.lsp.config.tinymist = {
 
 }
 
+local on_attach_ltex = function(client, bufnr)
+  on_attach_general(client, bufnr)
+  require('ltex_extra').setup({
+    load_langs = { "fr", "en-US" }, -- Charge ces dictionnaires
+    -- path = vim.fn.expand("~") .. "/.ltex" -- Où stocker les mots
+  })
+end
+vim.lsp.config.ltex = {
+  filetypes = { 
+    "bib", 
+    "gitcommit", 
+    "latex", 
+    "markdown", 
+    "org", 
+    "plaintex", 
+    "rst", 
+    "tex", 
+    "typst" -- Ajout pour Typst
+  },
+  settings = {
+    ltex = {
+      language = "auto", 
+      checkFrequency = "save",
+      additionalRules = {
+        enablePickyRules = true,
+     -- motherTongue = "fr",
+      },
+    }
+  },
+  on_attach = on_attach_ltex,
+}
