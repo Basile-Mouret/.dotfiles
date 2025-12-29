@@ -1,6 +1,8 @@
 local wezterm = require("wezterm")
 local config = wezterm.config_builder()
 
+config.enable_wayland = true
+
 -- Font Settings
 config.font = wezterm.font_with_fallback({
     'FiraCode Nerd Font',

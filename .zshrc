@@ -36,6 +36,7 @@ alias docker='sudo docker'
 
 alias code='flatpak run com.visualstudio.code'
 alias wezterm='flatpak run org.wezfurlong.wezterm'
+alias qutebrowser='flatpak run org.qutebrowser.qutebrowser'
 
 
 # ----- yazi -----
@@ -56,3 +57,5 @@ export PATH
 # <<< juliaup initialize <<<
 eval "$(starship init zsh)"
 
+
+. "$HOME/.local/bin/env"
