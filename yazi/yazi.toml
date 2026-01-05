@@ -1,0 +1,9 @@
+[opener]
+vscode = [
+    { run = 'code "%*"', orphan = true, desc = "Open in VS Code", for = "unix" }
+]
+
+[open]
+rules = [
+    { name = "*.ipynb", use = "vscode" },
+]
