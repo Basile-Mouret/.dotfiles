@@ -1,9 +1,14 @@
 [opener]
 vscode = [
-    { run = 'flatpak run com.visualstudio.code %s', orphan = true, desc = "Open in VS Code", for = "unix" }
+    { run = 'code %s', orphan = true, desc = "Open in VS Code", for = "unix" }
+]
+
+zathura = [
+    { run = 'zathura %s', orphan = true, desc = "Open in VS Code", for = "unix" }
 ]
 
 [open]
 prepend_rules = [
     { url = "*.ipynb", use = "vscode" },
+    { url = "*.pdf", use = "zathura" },
 ]

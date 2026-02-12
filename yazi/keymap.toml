@@ -1,0 +1,4 @@
+[[manager.prepend_keymap]]
+on   = [ "C" ]
+run  = 'shell "code \"$@\"" --orphan'
+desc = "Open selection in VS Code"
