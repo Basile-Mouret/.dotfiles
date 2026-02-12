@@ -1,7 +1,7 @@
 local wezterm = require("wezterm")
 local config = wezterm.config_builder()
 
-config.enable_wayland = true
+config.enable_wayland = false
 
 -- Font Settings
 config.font = wezterm.font_with_fallback({
@@ -20,7 +20,7 @@ config.colors = {
 }
 
 --Appearance
-config.window_decorations = "RESIZE"
+config.window_decorations = "None"
 config.hide_tab_bar_if_only_one_tab = true
 config.window_background_opacity = 0.80
 -- config.window_background_gradient = {preset = "Greys"}
