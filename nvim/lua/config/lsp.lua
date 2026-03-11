@@ -40,24 +40,24 @@ vim.lsp.config.tinymist = {
     end,
 }
 
-lspconfig.harper_ls.setup({
+vim.lsp.config("harper_ls", {
   -- Harper supports markdown, tex, and typst out of the box
-  filetypes = { 
-    "markdown", 
-    "tex", 
-    "bib", 
-    "typst", 
-    "gitcommit" 
-    -- Note: 'latex' and 'plaintex' are usually covered by 'tex', 
+  filetypes = {
+    "markdown",
+    "tex",
+    "bib",
+    "typst",
+    "gitcommit"
+    -- Note: 'latex' and 'plaintex' are usually covered by 'tex',
     -- but you can add them if your autocommands use those specific ft names.
   },
-  
+
   settings = {
     ["harper-ls"] = {
-      -- This allows you to use 'zg' to add words to the dictionary 
+      -- This allows you to use 'zg' to add words to the dictionary
       -- and have Harper stop flagging them immediately.
       userDictPath = vim.fn.stdpath("config") .. "/spell/en.utf-8.add",
-      
+
       -- Optional: Adjust specific settings if needed
       linters = {
         spell_check = true,
@@ -68,11 +68,8 @@ lspconfig.harper_ls.setup({
   },
 
   on_attach = function(client, bufnr)
-    -- We keep your general settings
-    if on_attach_general then
-      on_attach_general(client, bufnr)
-    end
-    
+    on_attach_general(client, bufnr)
     -- NOTE: 'ltex_extra' is NOT compatible with Harper, so we removed it.
   end,
 })
+vim.lsp.enable("harper_ls")
