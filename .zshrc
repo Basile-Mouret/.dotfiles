@@ -15,6 +15,8 @@ export SAVEHIST=10000
 path=('/home/user/.juliaup/bin' '/home/user/.opencode/bin' $path)
 export PATH="$PATH:$HOME/.julia/bin"
 
+export JULIA_PROJECT="@."
+
 if [[ -n $SSH_CONNECTION ]]; then
   export EDITOR='vim'
 else
