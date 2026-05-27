@@ -17,6 +17,7 @@ return {
 
     -- Load custom snippets
     luasnip.add_snippets("typst", require("snippets.typst"))
+    luasnip.add_snippets("all", require("snippets.other"))
 
     cmp.setup({
       snippet = {

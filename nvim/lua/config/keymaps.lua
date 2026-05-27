@@ -27,3 +27,37 @@ vim.keymap.set('n', 'K', vim.lsp.buf.hover, {
     buffer = bufnr, 
     desc = "LSP: Actions de code (corrections)" 
   })
+
+-- ==========================================
+-- Visual Mode: Keep Selection Enhancements
+-- ==========================================
+
+-- 1. Indentation: Indent and immediately reselect
+vim.keymap.set('v', '<', '<gv', { desc = 'Indent left and keep selection' })
+vim.keymap.set('v', '>', '>gv', { desc = 'Indent right and keep selection' })
+
+-- 2. Comments: Toggle comment and immediately reselect
+-- (This uses Neovim 0.10+ default 'gc' comment behavior)
+vim.keymap.set('v', '#', 'gcgv', { remap = true, desc = 'Toggle comment and keep selection' })
+
+-- 3. Auto-Surround: Wrap text and immediately reselect
+-- We use 'remap = true' to trigger mini.surround's 'sa' command.
+local surround_pairs = {
+  ['"'] = '"',
+  ["'"] = "'",
+  ['$'] = '$', -- Included for your Typst blocks!
+  
+  -- Because we inverted your brackets earlier, we must send the 
+  -- closing bracket to mini.surround to ensure a tight wrap without spaces.
+  ['('] = ')', 
+  ['{'] = '}',
+  ['['] = ']',
+  ['<'] = '>',
+}
+
+for key, surround_char in pairs(surround_pairs) do
+  vim.keymap.set('v', key, 'sa' .. surround_char .. 'gv', { 
+    remap = true, 
+    desc = 'Surround with ' .. key .. ' and keep selection' 
+  })
+end
