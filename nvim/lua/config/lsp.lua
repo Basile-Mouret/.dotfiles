@@ -81,3 +81,10 @@ vim.lsp.config("harper_ls", {
   end,
 })
 vim.lsp.enable("harper_ls")
+
+vim.lsp.config("clangd", {
+  on_attach = function(client, bufnr)
+    on_attach_general(client, bufnr)
+  end,
+})
+vim.lsp.enable("clangd")

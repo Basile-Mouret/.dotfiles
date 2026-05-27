@@ -4,11 +4,11 @@ vscode = [
 ]
 
 zathura = [
-    { run = 'zathura %s', orphan = true, desc = "Open in VS Code", for = "unix" }
+    { run = 'zathura %s', orphan = true, desc = "Open in Zathura", for = "unix" }
 ]
 
 [open]
 prepend_rules = [
     { url = "*.ipynb", use = "vscode" },
-    { url = "*.pdf", use = "zathura" },
+    { mime = "application/pdf", use = "zathura" }
 ]

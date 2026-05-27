@@ -10,7 +10,11 @@ return {
     require('mini.files').setup({})
     require('mini.pick').setup({})
     require('mini.icons').setup({})
-    require('mini.pairs').setup({})
+    require('mini.pairs').setup({
+      mappings = {
+        ['$'] = { action = 'closeopen', pair = '$$', neigh_pattern = '[^\\].', register = { cr = true } },
+      }
+    })
     require("mini.surround").setup({
       mappings = {
         add = 'sa',            -- Add surrounding

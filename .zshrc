@@ -3,7 +3,8 @@ unsetopt beep
 setopt interactive_comments
 
 # Hint: WezTerm usually sets this automatically, but keeping it is fine.
-export TERM_PROGRAM="WezTerm"
+#export TERM_PROGRAM="WezTerm"
+#export COLORTERM=truecolor
 
 export STARSHIP_CONFIG=~/.dotfiles/starship.toml
 export HISTFILE=~/.zsh_history
@@ -57,6 +58,9 @@ alias v='nvim'
 alias vi='nvim'
 alias vim='nvim'
 alias oldvim='\vim'
+alias mpiload='module load mpi' 
+alias open="xdg-open"
+alias o="xdg-open"
 
 alias docker='sudo docker'
 alias qutebrowser='flatpak run org.qutebrowser.qutebrowser'
@@ -84,3 +88,12 @@ function zvm_after_init() {
 }
 
 source $HOME/.zsh/zsh-vi-mode/zsh-vi-mode.plugin.zsh
+
+# >>> juliaup initialize >>>
+
+# !! Contents within this block are managed by juliaup !!
+
+path=('/home/user/.juliaup/bin' $path)
+export PATH
+
+# <<< juliaup initialize <<<

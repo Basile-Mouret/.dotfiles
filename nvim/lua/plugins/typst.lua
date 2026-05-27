@@ -5,7 +5,7 @@ return {
   lazy = false,
   version = '1.*',
   opts = {
-    open_cmd = "qutebrowser %s >/dev/null 2>&1 &",
+    open_cmd = "zen-browser --new-window %s >/dev/null 2>&1 &",
     
     -- === NEW: Add this function to fix the root path ===
     get_root = function(path_of_main_file)

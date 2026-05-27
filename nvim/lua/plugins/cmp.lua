@@ -9,6 +9,7 @@ return {
     'hrsh7th/cmp-cmdline',
     'saadparwaiz1/cmp_luasnip',
     'L3MON4D3/LuaSnip',
+    "kdheepak/cmp-latex-symbols",
   },
   config = function()
     local cmp = require('cmp')
@@ -59,7 +60,8 @@ return {
         { name = 'nvim_lsp', priority = 750 },
         { name = 'path', priority = 500 },
         --{ name = 'buffer', priority = 250 },
-      })
+        { name = 'latex_symbols', option = {strategy = 1}}, -- 0 = mixed, 1 = julia, 2 = latex
+        })
     })
 
     -- Set configuration for specific filetype.

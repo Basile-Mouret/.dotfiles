@@ -20,7 +20,7 @@ config.colors = {
 }
 
 --Appearance
-config.window_decorations = "None"
+config.window_decorations = "NONE"
 config.hide_tab_bar_if_only_one_tab = true
 config.window_background_opacity = 0.80
 -- config.window_background_gradient = {preset = "Greys"}
