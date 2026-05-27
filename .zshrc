@@ -97,3 +97,10 @@ path=('/home/user/.juliaup/bin' $path)
 export PATH
 
 # <<< juliaup initialize <<<
+
+
+
+# Load private environment variables if the file exists
+if [ -f ~/.zsh_secrets ]; then
+    source ~/.zsh_secrets
+fi
