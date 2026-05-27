@@ -10,6 +10,7 @@ return {
     'saadparwaiz1/cmp_luasnip',
     'L3MON4D3/LuaSnip',
     "kdheepak/cmp-latex-symbols",
+    "milanglacier/minuet-ai.nvim",
   },
   config = function()
     local cmp = require('cmp')
@@ -58,6 +59,7 @@ return {
       }),
       sources = cmp.config.sources({
         { name = 'luasnip', priority = 1000},
+        { name = 'minuet', priority = 800, performance={fetching_timeout=1000} },
         { name = 'nvim_lsp', priority = 750 },
         { name = 'path', priority = 500 },
         --{ name = 'buffer', priority = 250 },

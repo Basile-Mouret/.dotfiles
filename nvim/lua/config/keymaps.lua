@@ -61,3 +61,11 @@ for key, surround_char in pairs(surround_pairs) do
     desc = 'Surround with ' .. key .. ' and keep selection' 
   })
 end
+
+-- ==========================================
+-- Tab Indentation (Modern Editor Style)
+-- ==========================================
+
+-- Visual Mode: Indent multiple lines and keep the selection highlighted
+vim.keymap.set('v', '<Tab>', '>gv', { desc = 'Indent selection' })
+vim.keymap.set('v', '<S-Tab>', '<gv', { desc = 'Outdent selection' })

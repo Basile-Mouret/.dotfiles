@@ -14,25 +14,6 @@ local on_attach_general = function(client, bufnr)
   vim.keymap.set('n', 'gr', vim.lsp.buf.references, { buffer = bufnr, desc = "LSP: Voir les références" })
 end
 
--- JETLS: experimental, compiler-powered Julia LSP.
--- More advanced analysis but high CPU usage (constant core at 100%).
--- Uncomment to use instead of julials.
--- vim.lsp.config("jetls", {
---     cmd = {
---         "jetls",
---         "--threads=auto",
---         "--",
---     },
---     filetypes = { "julia" },
---     root_markers = { "Project.toml", ".git" },
--- })
--- vim.lsp.enable("jetls")
-
--- LanguageServer.jl via nvim-lspconfig (julials).
--- Requires LanguageServer.jl installed in ~/.julia/environments/nvim-lspconfig:
---   julia --project=~/.julia/environments/nvim-lspconfig -e 'using Pkg; Pkg.add("LanguageServer")'
--- julials is enabled automatically by mason-lspconfig, no vim.lsp.enable() needed.
-
 vim.lsp.config.tinymist = {
     on_attach = function(client, bufnr)
         vim.keymap.set("n", "<leader>tm", function()
@@ -88,3 +69,20 @@ vim.lsp.config("clangd", {
   end,
 })
 vim.lsp.enable("clangd")
+
+local julia_env = vim.fn.expand("~/.julia/environments/nvim-lspconfig")
+
+vim.lsp.config("julials", {
+  cmd = {
+    "julia",
+    "--startup-file=no",
+    "--history-file=no",
+    "--project=" .. julia_env,
+    "-e",
+    "using LanguageServer; runserver()"
+  },
+  on_attach = function(client, bufnr)
+    on_attach_general(client, bufnr)
+  end,
+})
+vim.lsp.enable("julials")

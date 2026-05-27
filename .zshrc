@@ -64,6 +64,7 @@ alias o="xdg-open"
 
 alias docker='sudo docker'
 alias qutebrowser='flatpak run org.qutebrowser.qutebrowser'
+# alias julia='julia -J ~/.dotfiles/julia_vim.so'
 
 # --- 5. Functions ---
 function y() {
@@ -104,3 +105,7 @@ export PATH
 if [ -f ~/.zsh_secrets ]; then
     source ~/.zsh_secrets
 fi
+
+
+
+
