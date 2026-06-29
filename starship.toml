@@ -2,7 +2,7 @@ add_newline = false
 
 format = """
 $username$hostname$directory$git_branch$git_status$python
-$character
+$env_var$character
 """
 
 palette = "catppuccin_mocha"
@@ -61,3 +61,8 @@ crust = "#11111b"
 [python]
 detect_extensions = ['py']
 format = 'via [${symbol}${pyenv_prefix}(${version} )(\($virtualenv\) )]($style)'
+
+[env_var.GUIX_ENVIRONMENT]
+variable = "GUIX_ENVIRONMENT"
+format = "[guix]($style) "
+style = "bold yellow"

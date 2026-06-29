@@ -1,5 +1,6 @@
 return {
   "milanglacier/minuet-ai.nvim",
+  enabled = false, -- Add this line to disable the plugin
   config = function()
     require('minuet').setup({
       provider = 'openai_compatible',

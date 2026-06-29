@@ -45,7 +45,6 @@ vim.keymap.set('v', '#', 'gcgv', { remap = true, desc = 'Toggle comment and keep
 local surround_pairs = {
   ['"'] = '"',
   ["'"] = "'",
-  ['$'] = '$', -- Included for your Typst blocks!
   
   -- Because we inverted your brackets earlier, we must send the 
   -- closing bracket to mini.surround to ensure a tight wrap without spaces.
