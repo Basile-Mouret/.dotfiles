@@ -17,17 +17,21 @@ vimcmd_symbol = "[❮](subtext1)" # For use with zsh-vi-mode
 style_user = "bold blue"
 style_root = "bold red"
 show_always = true  # By default, username only shows in SSH
+format = "[$user]($style)"
 
 [hostname]
-style = "bold $green"
-format = "[@$hostname]($style)"
+style = "bold green"
+format = "@[$hostname]($style)"
 
 [git_branch]
 style = "bold mauve"
 
 [directory]
 truncation_length = 4
+truncation_symbol = '…/'
+truncate_to_repo = true
 style = "bold lavender"
+format = " in [$path]($style)"
 
 
 [palettes.catppuccin_mocha]

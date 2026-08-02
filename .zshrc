@@ -65,6 +65,8 @@ alias o="xdg-open"
 alias docker='sudo docker'
 alias qutebrowser='flatpak run org.qutebrowser.qutebrowser'
 # alias julia='julia -J ~/.dotfiles/julia_vim.so'
+alias paraview='flatpak run org.paraview.ParaView'
+compdef _files paraview
 
 # --- 5. Functions ---
 function y() {
@@ -99,13 +101,13 @@ export PATH
 
 # <<< juliaup initialize <<<
 
-
-
 # Load private environment variables if the file exists
 if [ -f ~/.zsh_secrets ]; then
     source ~/.zsh_secrets
 fi
 
-
-
-
+# guix
+if [ -f "$HOME/.guix-profile/etc/profile" ]; then
+  GUIX_PROFILE="$HOME/.guix-profile"
+  . "$GUIX_PROFILE/etc/profile"
+fi
